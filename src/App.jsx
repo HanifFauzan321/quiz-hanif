@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Header/>
+     <div className="profile-card">
+        <h1 className="profile-name">{datas.grupName}</h1>
+        <h2 className="profile-member">Member Data</h2>
+        <p className="profile-name">{datas.member.name}</p>
+        <p className="profile-born">{datas.member.born}</p>
+        <p className="profile-age">{datas.member.age}</p>
+
+        <h2 className="Group Member"></h2>
+        <ul className="profile-list">
+            {datas.grupMembers.map((data) => <li key={data}>{data}</li>)}
+            
+        </ul>
+    </div>
     </>
-  )
+  );
 }
+
+
+const datas = {
+  grupName: "React Nebula",
+  member: {
+    name:"Hanif Fauzan Nurrahman",
+    born:"Bandung, 18-04-2004",
+    age:"20",
+  },
+  grupMembers: ["Hanif","Salim","Fadillah","Hilwa","Raksa","Imran","Anwar","Riri"],
+};
 
 export default App
